@@ -129,7 +129,7 @@ public class FinalBlueRightAutonomous extends LinearOpMode {
     static final double     DRIVE_SPEED             = -0.5;
     static final double     REVERSE_SPEED           =0.2;
     static final double     TURN_SPEED              = 0.2;
-    static final int HIGH_JUNCTION_TARGET_POSITION = 3950; //Set actual value
+    static final int HIGH_JUNCTION_TARGET_POSITION = 4000; //Set actual value
     static final int MEDIUM_JUNCTION_TARGET_POSITION = 2760; //Set actual value
     static final int LOW_JUNCTION_TARGET_POSITION = 1560; //Set actual value
 
@@ -282,12 +282,12 @@ public class FinalBlueRightAutonomous extends LinearOpMode {
         servo1.setPower(0.5);
         servo2.setPower(-0.5);
         //Wait for the arm to close to grab the cone
-        sleep(750);
+        sleep(1400);
         //Move the robot right while lighting the slide up
         synchronizeSlideAnyJunction(700, false, true);
         //Shuffle right
         //alr swtich dir
-        encoderShuffle(0.5, 30, 30, 3);
+        encoderShuffle(0.5, 25, 25, 3);
 
         //Back against the wall, before moving forward
         encoderDrive(3, 3, 5.0);
@@ -331,11 +331,11 @@ public class FinalBlueRightAutonomous extends LinearOpMode {
         //Turn counter-clock wise
         encoderDrive(6, -6, 5.0);
         //Move back to Signal sleeve position, while lowering the slide
-        encoderDriveSynchronizeSlides(21, 21, 0, false, true, 5.0);
+        encoderDriveSynchronizeSlides(18, 18, 0, false, true, 5.0);
 
         if (sideOfCone.equals("Blue1")){
             encoderDrive(-17.5, 17.5, 5.0);
-            encoderDrive(-22, -22, 5.0);
+            encoderDrive(-19, -19, 5.0);
         }
 
         else if (sideOfCone.equals("Blue3")){
