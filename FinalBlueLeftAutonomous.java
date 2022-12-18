@@ -281,7 +281,7 @@ public class FinalBlueLeftAutonomous extends LinearOpMode {
         servo1.setPower(0.5);
         servo2.setPower(-0.5);
         //Wait for the arm to close to grab the cone
-        sleep(750);
+        sleep(1400);
         //Move the robot right while lighting the slide up
         synchronizeSlideAnyJunction(700, false, true);
         //Shuffle right
@@ -338,7 +338,7 @@ public class FinalBlueLeftAutonomous extends LinearOpMode {
 
         else if (sideOfCone.equals("Blue3")){
             encoderDrive(16, -16, 5.0);
-            encoderDrive(-20, -20, 5.0);
+            encoderDrive(-17, -17, 5.0);
         }
 
         else {
