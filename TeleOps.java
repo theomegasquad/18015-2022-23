@@ -92,6 +92,47 @@ public class TeleOps extends LinearOpMode {
         boolean isOnTarget = false;
         while (!isOnTarget)
         {
+
+            if (gamepad1.left_stick_y != 0) {
+                leftFront.setPower(-gamepad1.left_stick_y);
+                leftBack.setPower(-gamepad1.left_stick_y);
+                rightFront.setPower(gamepad1.left_stick_y);
+                rightBack.setPower(gamepad1.left_stick_y);
+                telemetry.addData("Moving", "%f", gamepad1.left_stick_y);
+                telemetry.update();
+            }
+            else {
+                leftFront.setPower(0);
+                leftBack.setPower(0);
+                rightFront.setPower(0);
+                rightBack.setPower(0);
+            }
+
+            //Dpad right makes robot shuffle left
+            if (gamepad1.dpad_left) {
+                leftFront.setPower(1);
+                leftBack.setPower(-1);
+                rightFront.setPower(-1);
+                rightBack.setPower(1);
+                telemetry.addData("Shuffling", "left");
+                telemetry.update();
+            }
+
+            //Dpad left makes robot shuffle right
+            else if (gamepad1.dpad_right) {
+                leftFront.setPower(-1);
+                leftBack.setPower(1);
+                rightFront.setPower(1);
+                rightBack.setPower(-1);
+                telemetry.addData("Shuffling", "right");
+                telemetry.update();
+            }
+            else {
+                leftFront.setPower(0);
+                leftBack.setPower(0);
+                rightFront.setPower(0);
+                rightBack.setPower(0);
+            }
             double differentiatePower = Math.abs (
                     Math.abs(linearSlide2.getCurrentPosition())  -
                             Math.abs(linearSlide1.getCurrentPosition())
@@ -195,8 +236,8 @@ public class TeleOps extends LinearOpMode {
                 if (gamepad1.dpad_left) {
                     leftFront.setPower(1);
                     leftBack.setPower(-1);
-                    rightFront.setPower(1);
-                    rightBack.setPower(-1);
+                    rightFront.setPower(-1);
+                    rightBack.setPower(1);
                     telemetry.addData("Shuffling", "left");
                     telemetry.update();
                 }
@@ -205,8 +246,8 @@ public class TeleOps extends LinearOpMode {
                 else if (gamepad1.dpad_right) {
                     leftFront.setPower(-1);
                     leftBack.setPower(1);
-                    rightFront.setPower(-1);
-                    rightBack.setPower(1);
+                    rightFront.setPower(1);
+                    rightBack.setPower(-1);
                     telemetry.addData("Shuffling", "right");
                     telemetry.update();
                 }
